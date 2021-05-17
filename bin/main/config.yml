@@ -17,6 +17,8 @@ prefix: '&8[&7Item Shop&8] &r'
 # This is the title of the home page (it shows at the top of the GUI)
 home-page-title: '&d&lItem Shop'
 
+buy-page-prefix: '&l' # Add text or styling to the item purchase page.
+
 # "Dead" items are an extra layer of protection against exploits.
 # It currently shouldn't be possible to take an item out of the gui and use it as normal,
 # but if something breaks or the server restarts then items that are marked as "dead" will be deleted

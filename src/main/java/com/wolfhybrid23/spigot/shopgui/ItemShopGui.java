@@ -318,13 +318,13 @@ class ItemShopGui {
 		double price = amount * selectedItem.buyPrice;
 		
 		if((plugin.getBalance(player) < price) || (amount == 0)) {
-			player.sendMessage(plugin.config.notEnoughCurrencyError);
+			player.sendMessage(plugin.config.prefix + plugin.config.notEnoughCurrencyError);
 			player.closeInventory();
 			failSound();
 		}
 		else {
 			if(plugin.getMaxPurchase(player, selectedItem) < amount) {
-				player.sendMessage(plugin.config.notEnoughSpaceError);
+				player.sendMessage(plugin.config.prefix + plugin.config.notEnoughSpaceError);
 				player.closeInventory();
 				failSound();
 				
@@ -353,7 +353,7 @@ class ItemShopGui {
 		}
 		
 		if((plugin.countMatchingItems(player, selectedItem) < amount) || (amount == 0)) {
-			player.sendMessage(plugin.config.notEnoughItemsError);
+			player.sendMessage(plugin.config.prefix + plugin.config.notEnoughItemsError);
 			player.closeInventory();
 			failSound();
 			
