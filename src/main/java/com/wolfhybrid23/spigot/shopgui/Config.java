@@ -75,6 +75,13 @@ public class Config {
 		return str.trim().replace('-', '_').replace(' ', '_').toUpperCase();
 	}
 	
+	int clampWithWarning(int val, int min, int max, String message) {
+		if((val > max) || (val < min)) {
+			plugin.log.warning(message);
+		}
+		return Math.min(max, Math.max(val, min));
+	}
+	
 	void Load() throws ValueUndefinedException, InvalidValueException {
 		enableDeadItems = cfg.getBoolean("enable-dead-items", false);
 		
@@ -111,13 +118,27 @@ public class Config {
 		prevButtonPos = cfg.getInt("previous-page-button-x", 2) - 1;
 		econButtonPos = cfg.getInt("balance-icon-x", 9) - 1;
 		
-		homePageLength = cfg.getInt("home-page-lines", 4) * 9;
-		buyPageLength = cfg.getInt("buy-page-lines", 3) * 9;
-		categoryPageLength = cfg.getInt("category-page-lines", 4) * 9;
+		backButtonPos = clampWithWarning(backButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
+		nextButtonPos = clampWithWarning(backButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
+		prevButtonPos = clampWithWarning(backButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
+		econButtonPos = clampWithWarning(backButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
+		
+		homePageLength = cfg.getInt("home-page-lines", 4);
+		buyPageLength = cfg.getInt("buy-page-lines", 3);
+		categoryPageLength = cfg.getInt("category-page-lines", 4);
+		
+		homePageLength = clampWithWarning(homePageLength, 1, 6, "The value of home-page-lines must be between 1 and 6");
+		buyPageLength = clampWithWarning(buyPageLength, 2, 6, "The value of buy-page-lines must be between 2 and 6");
+		categoryPageLength = clampWithWarning(categoryPageLength, 2, 6, "The value of category-page-lines must be between 1 and 6");
+		
+		homePageLength *= 9;
+		buyPageLength *= 9;
+		categoryPageLength *= 9;
 		
 		buyPagePrefix = plugin.colorize(cfg.getString("buy-page-prefix", "&l"));
 		
-		itemsPerPage = Math.min(cfg.getInt("items-per-page", categoryPageLength - 9), categoryPageLength - 9);
+		itemsPerPage = cfg.getInt("items-per-page");
+		itemsPerPage = clampWithWarning(itemsPerPage, 1, categoryPageLength - 9, "items-per-page is greator than the inventory size. (the bottom 9 slots are reserved)");
 		
 		List<Integer> bulkAmounts = cfg.getIntegerList("bulk-amounts");
 		
