@@ -176,7 +176,7 @@ class ItemShopGui {
 				List<String> lore = new ArrayList<>();
 				
 				if(currentItem.canBuy) lore.add("\u00A7cBuy Price: " + plugin.formatBalance(currentItem.buyPrice));
-				if(currentItem.canSell) lore.add("\u00A7cSell Price: " + plugin.formatBalance(currentItem.sellPrice));
+				if(currentItem.canSell) lore.add("\u00A7aSell Price: " + plugin.formatBalance(currentItem.sellPrice));
 				
 				meta.setLore(lore);
 				stack.setItemMeta(meta);
