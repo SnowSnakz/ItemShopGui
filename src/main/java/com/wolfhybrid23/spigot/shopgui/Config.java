@@ -129,7 +129,7 @@ public class Config {
 		
 		homePageLength = clampWithWarning(homePageLength, 1, 6, "The value of home-page-lines must be between 1 and 6");
 		buyPageLength = clampWithWarning(buyPageLength, 2, 6, "The value of buy-page-lines must be between 2 and 6");
-		categoryPageLength = clampWithWarning(categoryPageLength, 2, 6, "The value of category-page-lines must be between 1 and 6");
+		categoryPageLength = clampWithWarning(categoryPageLength, 2, 6, "The value of category-page-lines must be between 2 and 6");
 		
 		homePageLength *= 9;
 		buyPageLength *= 9;
