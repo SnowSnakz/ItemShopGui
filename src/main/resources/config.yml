@@ -1,0 +1,116 @@
+# For any "material" properties, use (https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html) as a reference.
+# Remember: Not all "materials" can be obtained as items; these materials will be ignored and a warning will be logged.
+
+# For sounds: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+
+# For any 'name' properties, color codes can be used.
+# See (https://minecraft.fandom.com/wiki/Formatting_codes) for more information
+# you can optionally replace the section sign ('§') with an ampersand ('&')
+
+buy-sound: ENTITY_VILLAGER_YES
+sell-sound: ENTITY_VILLAGER_YES
+fail-sound: ENTITY_VILLAGER_NO
+
+# Any messages that are sent to the user in chat are prefixed with this text
+prefix: '&8[&7Item Shop&8] &r'
+
+# This is the title of the home page (it shows at the top of the GUI)
+home-page-title: '&d&lItem Shop'
+
+buy-page-prefix: '&l' # Add text or styling to the item purchase page.
+
+# "Dead" items are an extra layer of protection against exploits.
+# It currently shouldn't be possible to take an item out of the gui and use it as normal,
+# but if something breaks or the server restarts then items that are marked as "dead" will be deleted
+# when they are interacted with.
+# Dead items can be identified by an extra bit of blank space under the item name.
+# This extra blank line is some text like this '&d&e&a&d' ("dead" using each letter as a color code, making it invisible)
+enable-dead-items: true # You can disable this if it is interfering negatively with other plugins.
+
+# Icons for some of the function buttons
+buy-button:
+    material: red_stained_glass_pane
+    display-name: '&cBuy ' # Keep the extra space unless you dont want a space between the text and the amount.
+
+sell-button:
+    material: lime_stained_glass_pane
+    display-name: '&aSell ' # Keep the extra space unless you dont want a space between the text and the amount.
+
+next-page-button:
+    material: yellow_stained_glass_pane
+    display-name: '&aNext Page'
+
+previous-page-button:
+    material: yellow_stained_glass_pane
+    display-name: '&cPrevious Page'
+
+
+# This item appears where the buy button is if buying is disabled on the target item.
+# It also appears where the sell button is if selling is disabled on the target item.
+disabled-button:
+    material: barrier
+    display-name: '&8&lFunction Disabled'
+
+back-button:
+    material: chest
+    display-name: '&4&lBack'
+
+# This item displays the users balance when they hover over it.
+balance-icon:
+    material: gold_nugget
+    display-name: '&e&lYour Balance'
+
+# Error messages
+not-enough-currency: '&cYou do not have enough money.'
+not-enough-items: '&cYou do not have that many items.'
+not-enough-space: '&cYour inventory is full.'
+no-command-permission: '&cYou do not have permission to access this command.'
+
+# Positions of these buttons, they are always on the bottom line.
+back-button-x: 5
+previous-page-button-x: 2
+next-page-button-x: 8
+balance-icon-x: 9
+
+# Any 'lines' properties cannot be less than 1 or greator than 6
+home-page-lines: 4
+# (Buy Page/Category Page) can only have 2 lines minimum
+buy-page-lines: 3
+category-page-lines: 4
+
+# The number of items to display on a single page, if the number of items in the category is more, additional pages will be used.
+# If a category has more than this number of items, the 'page buttons' will be used to navigate all of them.
+items-per-page: 27
+
+# These are the 4 buttons on either side of the item on the 'buy screen'
+# You can change these to modify how many items the player can buy at once.
+bulk-amounts:
+- 1
+- 32
+- 64
+- -1 # Use -1 for (fill inventory)/(sell all in inventory)
+
+categories: # A list of categories to display in the shop menu
+    building-blocks: # This is a category
+        display-name: 'Building Blocks' # This is the categories displayed name
+        material: bricks # This is the icon of the button that appears in the home menu
+        # This is the list of items to sell in this category
+        items:
+            # The 'material' of the items to sell are here
+            # ('stone-bricks' is converted to 'STONE_BRICKS',
+            # and all of its properties are used to specify the prices and if it can be bought or sold)
+            stone-bricks:
+                can-buy: true
+                can-sell: true
+                buy-price: 4.00
+                sell-price: 1.00
+            dirt:
+                can-buy: true
+                can-sell: false
+                buy-price: 1.00
+                sell-price: 1.00
+            emerald:
+                can-buy: false
+                can-sell: true
+                buy-price: 1.00
+                sell-price: 20.00
