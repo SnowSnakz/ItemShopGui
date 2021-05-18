@@ -107,7 +107,7 @@ class ItemShopGui {
 				int startY = 1;
 				
 				int startX = 1;
-				int endX = 8;
+				int endX = 7;
 				
 				int cramming = (length - 1) * 7;
 				
