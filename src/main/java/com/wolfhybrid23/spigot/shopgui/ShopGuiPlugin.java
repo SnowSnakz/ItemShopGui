@@ -64,7 +64,9 @@ public class ShopGuiPlugin extends JavaPlugin {
 		
 		reloadConfig();
 		
-		for(ItemShopGui gui : openGuis) {
+		int guiCount = openGuis.size();
+		for(int i = 0; i < guiCount; i++) {
+			ItemShopGui gui = openGuis.get(i);
 			gui.view.close();
 		}
 		openGuis.clear();

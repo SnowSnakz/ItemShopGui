@@ -274,7 +274,7 @@ class ItemShopGui {
 			
 		case CATEGORY:
 			displayName = selectedCategory.displayName;			
-			size = selectedCategory.lines * 9;
+			size = selectedCategory.length;
 			
 			break;
 			

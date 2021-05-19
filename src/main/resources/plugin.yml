@@ -1,6 +1,6 @@
 main: com.wolfhybrid23.spigot.shopgui.ShopGuiPlugin
 description: A configurable item shop gui
-version: 1.1
+version: 1.2
 api-version: 1.16
 name: ShopGui
 authors: ["Woof Hybrid"]
