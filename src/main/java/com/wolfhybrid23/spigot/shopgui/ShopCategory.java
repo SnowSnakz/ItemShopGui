@@ -13,6 +13,7 @@ class ShopCategory {
 	ItemStack icon;
 	
 	int itemsPerPage;
+	int lines;
 	
 	String name;
 	String displayName;
@@ -21,7 +22,8 @@ class ShopCategory {
 	String permission;
 	
 	ShopCategory(Config config, ConfigurationSection cfg) throws ValueUndefinedException, InvalidValueException {
-		itemsPerPage = config.itemsPerPage;
+		itemsPerPage = cfg.getInt("items-per-page", config.itemsPerPage);
+		itemsPerPage = config.clampWithWarning(itemsPerPage, 1, (lines - 1) * 9, "items-per-page is less than 1 or greator than the max allowed (the bottom 9 rows are reserved)");
 		
 		name = cfg.getName();
 		displayName = config.plugin.colorize(config.require(cfg, "display-name", config.path));

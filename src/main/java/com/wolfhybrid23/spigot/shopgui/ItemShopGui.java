@@ -274,7 +274,7 @@ class ItemShopGui {
 			
 		case CATEGORY:
 			displayName = selectedCategory.displayName;			
-			size = plugin.config.categoryPageLength;
+			size = selectedCategory.lines * 9;
 			
 			break;
 			
