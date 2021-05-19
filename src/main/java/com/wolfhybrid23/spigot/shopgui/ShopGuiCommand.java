@@ -5,11 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-class ShopGuiCommand implements CommandExecutor {
-	String permission = "shopgui.command.use";
-	//String openPermission = "shopgui.open."; For future update (maybe)
-	String reloadPermission = "shopgui.command.reload";
-	
+class ShopGuiCommand implements CommandExecutor {	
 	ShopGuiPlugin plugin;
 	
 	ShopGuiCommand(ShopGuiPlugin plugin) {
@@ -21,7 +17,7 @@ class ShopGuiCommand implements CommandExecutor {
 		if(command.getName().equalsIgnoreCase("shop")) {
 			if(args.length > 0) {
 				if(args[0].equalsIgnoreCase("reload")) {
-					if(sender.hasPermission(reloadPermission)) {
+					if(sender.hasPermission(plugin.reloadPermission)) {
 						sender.sendMessage("\u00A7aReloading the plugin...");
 						
 						try {
@@ -44,7 +40,7 @@ class ShopGuiCommand implements CommandExecutor {
 				}
 			}
 			
-			if(sender.hasPermission(permission)) {
+			if(sender.hasPermission(plugin.permission)) {
 				if(sender instanceof Player) {
 					Player plr = (Player)sender;
 					plugin.openGuis.add(new ItemShopGui(plugin, plr));

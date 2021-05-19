@@ -29,6 +29,10 @@ public class ShopGuiPlugin extends JavaPlugin {
 	String deadLoreString = "\u00a7d\u00a7e\u00a7a\u00a7d";
 	List<ItemShopGui> openGuis;
 	
+	String permission = "shopgui.command.use";
+	String openPermission = "shopgui.open.";
+	String reloadPermission = "shopgui.command.reload";
+	
 	@Override
 	public void onEnable() {
 		log = getLogger();

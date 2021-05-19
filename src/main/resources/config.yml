@@ -65,6 +65,7 @@ not-enough-currency: '&cYou do not have enough money.'
 not-enough-items: '&cYou do not have that many items.'
 not-enough-space: '&cYour inventory is full.'
 no-command-permission: '&cYou do not have permission to access this command.'
+no-category-permission: '&cYou do not have permission to access this category.'
 
 # Positions of these buttons, they are always on the bottom line.
 back-button-x: 5
@@ -94,6 +95,7 @@ categories: # A list of categories to display in the shop menu
     building-blocks: # This is a category
         display-name: 'Building Blocks' # This is the categories displayed name
         material: bricks # This is the icon of the button that appears in the home menu
+        permission: building_blocks # 'shopgui.open.building_blocks' # Do not use dashes ('-').
         # This is the list of items to sell in this category
         items:
             # The 'material' of the items to sell are here

@@ -18,12 +18,16 @@ class ShopCategory {
 	String displayName;
 	List<ShopItem> items;
 	
+	String permission;
+	
 	ShopCategory(Config config, ConfigurationSection cfg) throws ValueUndefinedException, InvalidValueException {
 		itemsPerPage = config.itemsPerPage;
 		
 		name = cfg.getName();
 		displayName = config.plugin.colorize(config.require(cfg, "display-name", config.path));
 
+		permission = cfg.getString("permission", name.replace('-', '_'));
+		
 		Material iconMaterial = config.getMaterial(cfg, "material", config.path);
 		icon = new ItemStack(iconMaterial);
 		

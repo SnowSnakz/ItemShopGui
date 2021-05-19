@@ -410,13 +410,20 @@ class ItemShopGui {
 				
 				ShopCategory category = homeLayout.get(slot);
 				if(category != null) {
-					selectedCategory = category;
-					pageIndex = 0;
-					
-					categoryLayout.clear();
-					currentCategoryItems = null;
-					
-					state = State.CATEGORY;
+					if(player.hasPermission(plugin.openPermission + category.permission)) 
+					{
+						selectedCategory = category;
+						pageIndex = 0;
+						
+						categoryLayout.clear();
+						currentCategoryItems = null;
+						
+						state = State.CATEGORY;
+					}
+					else 
+					{
+						player.sendMessage(plugin.config.prefix + plugin.config.noCategoryPermissionError);
+					}
 				}
 				
 				break;

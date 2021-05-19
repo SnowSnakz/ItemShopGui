@@ -54,6 +54,7 @@ public class Config {
 	String notEnoughItemsError;
 	String notEnoughSpaceError;
 	String notEnoughPermissionError;
+	String noCategoryPermissionError;
 	
 	String buyPagePrefix;
 	
@@ -112,6 +113,7 @@ public class Config {
 		notEnoughItemsError = plugin.colorize(require(cfg, "not-enough-items", path));
 		notEnoughSpaceError = plugin.colorize(require(cfg, "not-enough-space", path));
 		notEnoughPermissionError = plugin.colorize(require(cfg, "no-command-permission", path));
+		noCategoryPermissionError = plugin.colorize(require(cfg, "no-category-permission", path));
 		
 		backButtonPos = cfg.getInt("back-button-x", 5) - 1;
 		nextButtonPos = cfg.getInt("next-page-button-x", 8) - 1;
