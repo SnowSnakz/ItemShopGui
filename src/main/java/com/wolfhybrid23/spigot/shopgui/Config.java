@@ -121,9 +121,9 @@ public class Config {
 		econButtonPos = cfg.getInt("balance-icon-x", 9) - 1;
 		
 		backButtonPos = clampWithWarning(backButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
-		nextButtonPos = clampWithWarning(backButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
-		prevButtonPos = clampWithWarning(backButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
-		econButtonPos = clampWithWarning(backButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
+		nextButtonPos = clampWithWarning(nextButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
+		prevButtonPos = clampWithWarning(prevButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
+		econButtonPos = clampWithWarning(econButtonPos, 0, 8, "Buttons can only use the bottom 9 slots.");
 		
 		homePageLength = cfg.getInt("home-page-lines", 4);
 		buyPageLength = cfg.getInt("buy-page-lines", 3);
