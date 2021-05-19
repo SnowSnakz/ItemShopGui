@@ -97,7 +97,7 @@ categories: # A list of categories to display in the shop menu
         material: bricks # This is the icon of the button that appears in the home menu
         permission: building_blocks # 'shopgui.open.building_blocks' # Do not use dashes ('-').
         lines: 3 # *Optional, if not included the 'category-page-lines' property is used instead.
-		items-per-page: 18 # *Optional, if not included the 'items-per-page' property (above) will be used.
+        items-per-page: 18 # *Optional, if not included the 'items-per-page' property (above) will be used.
         # This is the list of items to sell in this category
         items:
             # The 'material' of the items to sell are here
